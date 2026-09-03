@@ -1,0 +1,17 @@
+.country {
+    border: 2px solid green;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.country img {
+    width: 100px;
+}
+
+.country-visited {
+    background: lightgreen;
+}
+.country-visited p {
+    color: darkgreen;
+}
