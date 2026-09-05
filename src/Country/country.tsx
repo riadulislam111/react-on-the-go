@@ -1,11 +1,15 @@
 import { useState } from "react";
 import type { CountryType } from "../type";
 import "./country.css";
+
+
 export interface CountryProps {
   country: CountryType;
+  handleVisitedCountry: (country: CountryType) => void,
+  handleVisitedFlag: (flag: string) => void,
 }
 
-export default function Country({ country }: CountryProps) {
+export default function Country({ country, handleVisitedCountry, handleVisitedFlag }: CountryProps) {
   const [visited, setVisited] = useState<boolean>(false);
 
   const handleVisited = () => {
@@ -15,7 +19,8 @@ export default function Country({ country }: CountryProps) {
     // } else {
     //   setVisited(true);
     // }
-    setVisited(!visited)
+    setVisited(!visited);
+    handleVisitedCountry(country)
   };
 
 // const countryStyle = {
@@ -31,6 +36,9 @@ export default function Country({ country }: CountryProps) {
       <button onClick={handleVisited}>
         {visited ? "Visited" : "Mark as Visited"}
       </button>
+      <button
+      onClick={() => handleVisitedFlag(country.flags.flags.png)}
+      >add flag as visited</button>
     </div>
   );
 }
